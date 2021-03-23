@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:groceryapp/Authorization/IntroScreen/introScreen.dart';
+import 'package:groceryapp/Authorization/LoginPage/loginPage.dart';
 import 'Values/AppColors.dart';
 
 void main() {
@@ -42,7 +43,7 @@ class GroceryApp extends StatelessWidget {
           )
       ),
       routes: <String,WidgetBuilder>{
-        // '/loginscreen' : (BuildContext context) => SignIn(),
+        '/loginscreen' : (BuildContext context) => LoginPage(),
         // '/dashBoard' : (BuildContext context) => Dashboard(),
         '/introScreen' : (BuildContext context) => IntroScreen(),
         // '/splashscreen':  (BuildContext context) => SplashScreen(),

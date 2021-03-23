@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:groceryapp/Authorization/IntroScreen/swiper_pagination.dart';
+import 'package:groceryapp/MyNavigator/myNavigator.dart';
 import 'package:groceryapp/Values/AppColors.dart';
 
 
@@ -41,14 +42,28 @@ class _IntroScreenState extends State<IntroScreen> {
       backgroundColor: AppColors.primaryBackGroundColor,
       body: Stack(
         children: <Widget>[
-          Container(
-            alignment: Alignment.center,
-          ),
+
           Column(
             children: <Widget>[
+              _currentIndex < _pageCount - 1 ? Container(
+                alignment: Alignment.topRight,
+                padding: EdgeInsets.only(top: 40),
+                child: FlatButton(
+                  child: Text('Skip',
+                    style: TextStyle(
+                        color: AppColors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        fontFamily: 'montserrat-semibold'
+                    ),),
+                  onPressed: (){
+                    MyNavigator.goToLoginPage(context);
+                  },
+                ),
+              ) : Container(),
               Expanded(
                   child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 40),
+                    padding: EdgeInsets.symmetric(vertical: 20),
                     child:  Swiper(
                       index: _currentIndex,
                       controller: _swiperController,
@@ -65,11 +80,11 @@ class _IntroScreenState extends State<IntroScreen> {
                             icon: images[index]);
                       },
                       pagination: SwiperPagination(
-                          alignment: Alignment.topCenter,
+                          alignment: Alignment.bottomCenter,
                           builder: CustomPaginationBuilder(
                               activeSize: Size(35.0, 10.0),
-                              size: Size(12.0, 12.0),
-                              color: AppColors.white_90,
+                              size: Size(18.0, 12.0),
+                              color: AppColors.grey_09,
                               activeColor: AppColors.buttonColor
                           )
 
@@ -77,8 +92,8 @@ class _IntroScreenState extends State<IntroScreen> {
                     ),
                   )
               ),
+              SizedBox(height: 70,),
               _buildButtons(),
-              SizedBox(height: 20,)
             ],
           ),
         ],
@@ -88,106 +103,71 @@ class _IntroScreenState extends State<IntroScreen> {
 
   Widget _buildButtons() {
     return _currentIndex < _pageCount - 1 ?
-    Container(
-      margin: EdgeInsets.only(right: 16.0, bottom: 0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          FlatButton(
-            textColor: AppColors.primaryColor,
-            child: Text("Skip",
-              style: TextStyle(
-                  color: AppColors.primaryColor,
-                  fontSize: 16,
-                  fontFamily: 'Poppins-Medium'
-              ),),
-            onPressed: () async {
-              // MyNavigator.goToAuthorizationPage(context);
-
-            },
+    Padding(
+      padding: EdgeInsets.only(left: 20,right: 20,bottom: 30,top: 10),
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        child: RaisedButton(
+          color: AppColors.buttonColor,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20)
           ),
-          RaisedButton(
-            color: AppColors.buttonColor,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(25)
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 12),
-              child: Text('Next',
-                style: TextStyle(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 0,vertical: 12),
+            child: Text('Next',
+              style: TextStyle(
+                  color: AppColors.white_00,
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
-                  fontFamily: 'Poppins-Medium',
-                  color: AppColors.primaryColor,
-                ),),
-            ),
-            onPressed: () async {
-              if (_currentIndex < _pageCount - 1)
-                _swiperController.next();
-              else {
+                  fontFamily: 'montserrat-Medium'
+              ),),
+          ),
+          onPressed: () async{
+            if (_currentIndex < _pageCount - 1)
+              _swiperController.next();
 
-                // MyNavigator.goToAuthorizationPage(context);
-
-              }
-            },
-          )
-        ],
+            else {
+              MyNavigator.goToLoginPage(context);
+            }
+          },
+        ),
       ),
     )
         :
-    Container(
-      transform: Matrix4.translationValues(0, -50, 0),
-      child: RaisedButton(
-        color: AppColors.buttonColor,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20)
+    Padding(
+      padding: EdgeInsets.only(left: 20,right: 20,bottom: 30,top: 10),
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        child: RaisedButton(
+          color: AppColors.buttonColor,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20)
+          ),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 0,vertical: 12),
+            child: Text('Get Started',
+              style: TextStyle(
+                  color: AppColors.white_00,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  fontFamily: 'montserrat-semibold'
+              ),),
+          ),
+          onPressed: (){
+            MyNavigator.goToLoginPage(context);
+          },
         ),
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20,vertical: 12),
-          child: Text('Get Started',
-            style: TextStyle(
-                color: AppColors.white_00,
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-                fontFamily: 'Poppins-Medium'
-            ),),
-        ),
-        onPressed: (){
-
-          // MyNavigator.goToAuthorizationPage(context);
-
-        },
       ),
     );
   }
 
   Widget _buildPage({String title,String bottom, String icon}) {
     return Container(
-        margin:  EdgeInsets.only(top: 50,bottom: 50),
-        padding: EdgeInsets.only(top: 20,bottom: 20),
+        margin:  EdgeInsets.only(top: 0,bottom: 20),
+        padding: EdgeInsets.only(top: 00,bottom: 20),
         child:Container(
           child:  Stack(
             children: <Widget>[
-              Align(
-                alignment: Alignment.topCenter,
-                child: Column(
-                  children: [
-                    Text(title,
-                      style: TextStyle(
-                          color: AppColors.white_30,
-                          fontSize: 22.0,
-                          fontWeight: FontWeight.bold
-                      ),
-                      textAlign: TextAlign.center,),
-                    SizedBox(height: 20,),
-                    Text(bottom,style:TextStyle(
-                      color: AppColors.white_30,
-                      fontSize: 17.0,
-                    ),
-                      textAlign: TextAlign.center,),
-                  ],
-                ),
-              ),
               Padding(
                 padding: const EdgeInsets.only(top: 80),
                 child: Align(
@@ -196,10 +176,31 @@ class _IntroScreenState extends State<IntroScreen> {
                     height: 230,
                     padding: EdgeInsets.symmetric(horizontal: 15),
                     child: Image.asset(icon,
-                      fit: BoxFit.fitWidth,
-                      height: 168,
+                      fit: BoxFit.fill,
+                      // height: 230,
                     ),
                   ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(title,
+                      style: TextStyle(
+                          color: AppColors.black,
+                          fontSize: 18.0,
+                      ),
+                      textAlign: TextAlign.center,),
+                    SizedBox(height: 5,),
+                    Text(bottom,style:TextStyle(
+                      color: AppColors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0,
+                    ),
+                      textAlign: TextAlign.center,),
+                  ],
                 ),
               ),
 
