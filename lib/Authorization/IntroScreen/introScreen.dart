@@ -173,10 +173,10 @@ class _IntroScreenState extends State<IntroScreen> {
                 child: Align(
                   alignment: Alignment.center,
                   child: Container(
-                    height: 230,
+                    height: 280,
                     padding: EdgeInsets.symmetric(horizontal: 15),
                     child: Image.asset(icon,
-                      fit: BoxFit.fill,
+                      fit: BoxFit.fitHeight,
                       // height: 230,
                     ),
                   ),

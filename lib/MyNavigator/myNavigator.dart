@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class MyNavigator{
 
-  static void goToHomePage(BuildContext context){
+  static void goToDashBoard(BuildContext context){
     Navigator.of(context).pushNamedAndRemoveUntil('/dashBoard', (route) => false);
   }
   static void goToIntroScreen(BuildContext context){
@@ -15,6 +15,11 @@ class MyNavigator{
 
   static void goToSplashScreen(BuildContext context){
     Navigator.of(context).pushNamedAndRemoveUntil('/splashscreen', (route) => false);
+  }
+
+
+  static void goToHomePage(BuildContext context){
+    Navigator.of(context).pushNamedAndRemoveUntil('/homePage', (route) => false);
   }
 
 }

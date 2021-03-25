@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:groceryapp/Authorization/IntroScreen/introScreen.dart';
 import 'package:groceryapp/Authorization/LoginPage/loginPage.dart';
+import 'package:groceryapp/UIDashBoard/HomePage/homePage.dart';
+import 'package:groceryapp/UIDashBoard/dashBoard.dart';
 import 'Values/AppColors.dart';
 
 void main() {
@@ -44,9 +46,9 @@ class GroceryApp extends StatelessWidget {
       ),
       routes: <String,WidgetBuilder>{
         '/loginscreen' : (BuildContext context) => LoginPage(),
-        // '/dashBoard' : (BuildContext context) => Dashboard(),
+        '/dashBoard' : (BuildContext context) => DashBoard(),
         '/introScreen' : (BuildContext context) => IntroScreen(),
-        // '/splashscreen':  (BuildContext context) => SplashScreen(),
+        '/homePage':  (BuildContext context) => HomePage(),
       },
     );
   }

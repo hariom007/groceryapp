@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:groceryapp/MyNavigator/myNavigator.dart';
 import 'package:groceryapp/Values/AppColors.dart';
 
 class LoginPage extends StatefulWidget {
@@ -80,6 +81,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                           SizedBox(height: 10,),
                           Container(
                             child: [
+                              //SignIn
                               Padding(
                                 padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
                                 child: Column(
@@ -143,6 +145,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                               ),),
                                           ),
                                           onPressed: (){
+                                            MyNavigator.goToDashBoard(context);
                                           },
                                         ),
                                       ),
@@ -172,83 +175,230 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                           ),
                                         ]
                                     ),
+                                    SizedBox(height: 20,),
+
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       children: <Widget>[
-                                        CircleAvatar(
-                                          radius: 23,
-                                          backgroundColor: AppColors.primaryColor,
-                                          child: InkWell(
-                                            child: Image.asset("assets/icon/google.png",height: 30,width: 30,fit: BoxFit.fill,),
-                                            onTap: () {
-                                            },
+                                        Expanded(
+                                          child: CircleAvatar(
+                                            radius: 23,
+                                            backgroundColor: AppColors.primaryBackGroundColor,
+                                            child:  Row(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Image.asset("assets/icon/google.png",height: 30,width: 30,fit: BoxFit.fill,),
+                                                Text('  Google',
+                                                  style: TextStyle(
+                                                    color: AppColors.black,
+                                                    fontFamily: 'montserrat-regular',
+                                                  ),)
+                                              ],
+                                            )
                                           ),
                                         ),
                                         SizedBox(width: 30,),
-                                        CircleAvatar(
-                                          radius: 23,
-                                          backgroundColor: AppColors.primaryColor,
-                                          child: InkWell(
-                                            child: Image.asset("assets/icon/fb.png",height: 30,width: 30,fit: BoxFit.fill,),
-                                            onTap: () {
-                                            },
+                                        Expanded(
+                                          child: CircleAvatar(
+                                            radius: 23,
+                                            backgroundColor: AppColors.primaryBackGroundColor,
+                                            child: Row(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Image.asset("assets/icon/fb.png",height: 30,width: 30,fit: BoxFit.fill,),
+                                                Text('  Facebook',
+                                                  style: TextStyle(
+                                                    color: AppColors.black,
+                                                    fontFamily: 'montserrat-regular',
+                                                  ),)
+                                              ],
+                                            )
                                           ),
                                         ),
                                       ],
                                     ),
+                                    SizedBox(height: 40,),
+                                    Center(child: Text('Terms & Conditions',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color: AppColors.grey_80
+                                      ),)),
+                                    SizedBox(height: 20,),
+
 
                                   ],
                                 ),
                               ),
-                              Container(
-                                  child: Padding(
-                                      padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-                                      child: Column(
+
+                              //SignUp
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+
+                                    TextField(
+                                      style: TextStyle(
+                                        color: AppColors.black,
+                                        fontSize: 14,
+                                        fontFamily: 'Montserrat-semibold',
+                                      ),
+                                      decoration: InputDecoration(
+                                          hintText: "Username",
+                                          hintStyle: TextStyle(
+                                            color: AppColors.grey_90,
+                                            fontSize: 14,
+                                            fontFamily: 'Montserrat-Regular',
+                                          ),
+                                          prefixIcon: Icon(Icons.person_outline),
+                                          contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0)
+                                      ),
+                                    ),
+                                    SizedBox(height: 20,),
+                                    TextField(
+                                      style: TextStyle(
+                                        color: AppColors.black,
+                                        fontSize: 14,
+                                        fontFamily: 'Montserrat-semibold',
+                                      ),
+                                      decoration: InputDecoration(
+                                          hintText: "Email address",
+                                          hintStyle: TextStyle(
+                                            color: AppColors.grey_90,
+                                            fontSize: 14,
+                                            fontFamily: 'Montserrat-Regular',
+                                          ),
+                                          prefixIcon: Icon(Icons.mail_outline),
+                                          contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0)
+                                      ),
+                                    ),
+                                    SizedBox(height: 20,),
+                                    TextField(
+                                      style: TextStyle(
+                                        color: AppColors.black,
+                                        fontSize: 14,
+                                        fontFamily: 'Montserrat-semibold',
+                                      ),
+                                      obscureText: true,
+                                      decoration: InputDecoration(
+                                          hintText: "Password",
+                                          hintStyle: TextStyle(
+                                            color: AppColors.grey_90,
+                                            fontSize: 14,
+                                            fontFamily: 'Montserrat-Regular',
+                                          ),
+                                          prefixIcon: Icon(Icons.lock_open),
+                                          contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0)
+                                      ),
+                                    ),
+                                    SizedBox(height: 40,),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                                      child: Container(
+                                        width: MediaQuery.of(context).size.width,
+                                        child: RaisedButton(
+                                          color: AppColors.buttonColor,
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(20)
+                                          ),
+                                          child: Padding(
+                                            padding: EdgeInsets.symmetric(horizontal: 0,vertical: 14),
+                                            child: Text('SignUp',
+                                              style: TextStyle(
+                                                  color: AppColors.white_00,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 16,
+                                                  fontFamily: 'montserrat-semibold'
+                                              ),),
+                                          ),
+                                          onPressed: (){
+                                            MyNavigator.goToDashBoard(context);
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(height: 20,),
+                                    Container(
+                                      alignment: Alignment.topRight,
+                                      child: Text('Reset Password',
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.bold
+                                        ),),
+                                    ),
+                                    SizedBox(height: 20,),
+                                    Row(
                                         children: <Widget>[
-                                          Card(
-                                            elevation: 0,
-                                            color: AppColors.white_90,
-                                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(7))),
-                                            child: TextField(
-                                              decoration: InputDecoration(
-                                                  hintText: "First Name",
-                                                  hintStyle: TextStyle(
-                                                    color: AppColors.grey_50,
-                                                    fontFamily: 'Montserrat-Regular',
-                                                  ),
-                                                  filled: true,
-                                                  border: OutlineInputBorder(
-                                                    borderSide: BorderSide.none,
-                                                    borderRadius: BorderRadius.all(Radius.circular(7.0)),
-                                                  ),
-                                                  contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0)
-                                              ),
-                                            ),
+                                          Expanded(
+                                              child: Divider(
+                                                color: AppColors.grey_10,
+                                              )
                                           ),
-                                          Card(
-                                            elevation: 0,
-                                            color: AppColors.white_90,
-                                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(7))),
-                                            child: TextField(
-                                              decoration: InputDecoration(
-                                                  hintText: "Your Email Address",
-                                                  hintStyle: TextStyle(
-                                                    color: AppColors.grey_50,
-                                                    fontFamily: 'Montserrat-Regular',
-                                                  ),
-                                                  filled: true,
-//                                                            fillColor: Colors.white,
-                                                  border: OutlineInputBorder(
-                                                    borderSide: BorderSide.none,
-                                                    borderRadius: BorderRadius.all(Radius.circular(7.0)),
-                                                  ),
-                                                  contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0)
-                                              ),
-                                            ),
+                                          Text("  OR  "),
+                                          Expanded(
+                                              child: Divider(
+                                                color: AppColors.grey_10,
+                                              )
                                           ),
-                                        ],
-                                      )
-                                  )
+                                        ]
+                                    ),
+                                    SizedBox(height: 20,),
+
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: <Widget>[
+                                        Expanded(
+                                          child: CircleAvatar(
+                                              radius: 23,
+                                              backgroundColor: AppColors.primaryBackGroundColor,
+                                              child:  Row(
+                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Image.asset("assets/icon/google.png",height: 30,width: 30,fit: BoxFit.fill,),
+                                                  Text('  Google',
+                                                    style: TextStyle(
+                                                      color: AppColors.black,
+                                                      fontFamily: 'montserrat-regular',
+                                                    ),)
+                                                ],
+                                              )
+                                          ),
+                                        ),
+                                        SizedBox(width: 30,),
+                                        Expanded(
+                                          child: CircleAvatar(
+                                              radius: 23,
+                                              backgroundColor: AppColors.primaryBackGroundColor,
+                                              child: Row(
+                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Image.asset("assets/icon/fb.png",height: 30,width: 30,fit: BoxFit.fill,),
+                                                  Text('  Facebook',
+                                                    style: TextStyle(
+                                                        color: AppColors.black,
+                                                      fontFamily: 'montserrat-regular',
+                                                    ),)
+                                                ],
+                                              )
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(height: 40,),
+                                    Center(child: Text('Terms & Conditions',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color: AppColors.grey_80
+                                      ),)),
+                                    SizedBox(height: 20,),
+
+
+                                  ],
+                                ),
                               ),
                             ]
                             [_tabIndex],
@@ -258,6 +408,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                     ),
                   ],
                 ),
+
 
               ],
             ),
