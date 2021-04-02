@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:groceryapp/Authorization/fillpersoninfo.dart';
 import 'package:groceryapp/MyNavigator/myNavigator.dart';
 import 'package:groceryapp/Values/AppColors.dart';
 
@@ -87,23 +89,42 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-
-                                    TextField(
-                                      style: TextStyle(
-                                        color: AppColors.black,
-                                        fontSize: 14,
-                                        fontFamily: 'Montserrat-semibold',
-                                      ),
-                                      decoration: InputDecoration(
-                                          hintText: "Email address",
-                                          hintStyle: TextStyle(
-                                            color: AppColors.grey_90,
-                                            fontSize: 14,
-                                            fontFamily: 'Montserrat-Regular',
+                                    Row(
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        Expanded(
+                                          child: TextField(
+                                            style: TextStyle(
+                                              color: AppColors.black,
+                                              fontSize: 14,
+                                              fontFamily: 'Montserrat-semibold',
+                                            ),
+                                            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                                            keyboardType: TextInputType.phone,
+                                            decoration: InputDecoration(
+                                                hintText: "Mobile Number",
+                                                hintStyle: TextStyle(
+                                                  color: AppColors.grey_90,
+                                                  fontSize: 14,
+                                                  fontFamily: 'Montserrat-Regular',
+                                                ),
+                                                prefixIcon: Icon(Icons.mail_outline),
+                                                contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0)
+                                            ),
                                           ),
-                                          prefixIcon: Icon(Icons.mail_outline),
-                                          contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0)
-                                      ),
+                                        ),
+                                        CircleAvatar(
+                                          radius: 23,
+                                          backgroundColor: AppColors.appColor2,
+                                          child: IconButton(
+                                            onPressed: (){
+
+                                            },
+                                            icon: Icon(Icons.arrow_forward,color: AppColors.white_00,size : 28),
+                                          ),
+                                        ),
+
+                                      ],
                                     ),
                                     SizedBox(height: 20,),
                                     TextField(
@@ -114,7 +135,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                       ),
                                       obscureText: true,
                                       decoration: InputDecoration(
-                                          hintText: "Password",
+                                          hintText: "Enter OTP  ",
                                           hintStyle: TextStyle(
                                             color: AppColors.grey_90,
                                             fontSize: 14,
@@ -238,41 +259,42 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
+                                    Row(
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        Expanded(
+                                          child: TextField(
+                                            style: TextStyle(
+                                              color: AppColors.black,
+                                              fontSize: 14,
+                                              fontFamily: 'Montserrat-semibold',
+                                            ),
+                                            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                                            keyboardType: TextInputType.phone,
+                                            decoration: InputDecoration(
+                                                hintText: "Mobile Number",
+                                                hintStyle: TextStyle(
+                                                  color: AppColors.grey_90,
+                                                  fontSize: 14,
+                                                  fontFamily: 'Montserrat-Regular',
+                                                ),
+                                                prefixIcon: Icon(Icons.mail_outline),
+                                                contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0)
+                                            ),
+                                          ),
+                                        ),
+                                        CircleAvatar(
+                                          radius: 23,
+                                          backgroundColor: AppColors.appColor2,
+                                          child: IconButton(
+                                            onPressed: (){
 
-                                    TextField(
-                                      style: TextStyle(
-                                        color: AppColors.black,
-                                        fontSize: 14,
-                                        fontFamily: 'Montserrat-semibold',
-                                      ),
-                                      decoration: InputDecoration(
-                                          hintText: "Username",
-                                          hintStyle: TextStyle(
-                                            color: AppColors.grey_90,
-                                            fontSize: 14,
-                                            fontFamily: 'Montserrat-Regular',
+                                            },
+                                            icon: Icon(Icons.arrow_forward,color: AppColors.white_00,size : 28),
                                           ),
-                                          prefixIcon: Icon(Icons.person_outline),
-                                          contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0)
-                                      ),
-                                    ),
-                                    SizedBox(height: 20,),
-                                    TextField(
-                                      style: TextStyle(
-                                        color: AppColors.black,
-                                        fontSize: 14,
-                                        fontFamily: 'Montserrat-semibold',
-                                      ),
-                                      decoration: InputDecoration(
-                                          hintText: "Email address",
-                                          hintStyle: TextStyle(
-                                            color: AppColors.grey_90,
-                                            fontSize: 14,
-                                            fontFamily: 'Montserrat-Regular',
-                                          ),
-                                          prefixIcon: Icon(Icons.mail_outline),
-                                          contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0)
-                                      ),
+                                        ),
+
+                                      ],
                                     ),
                                     SizedBox(height: 20,),
                                     TextField(
@@ -283,7 +305,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                       ),
                                       obscureText: true,
                                       decoration: InputDecoration(
-                                          hintText: "Password",
+                                          hintText: "Enter OTP  ",
                                           hintStyle: TextStyle(
                                             color: AppColors.grey_90,
                                             fontSize: 14,
@@ -305,7 +327,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                           ),
                                           child: Padding(
                                             padding: EdgeInsets.symmetric(horizontal: 0,vertical: 14),
-                                            child: Text('SignUp',
+                                            child: Text('Verify OTP',
                                               style: TextStyle(
                                                   color: AppColors.white_00,
                                                   fontWeight: FontWeight.bold,
@@ -314,7 +336,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                               ),),
                                           ),
                                           onPressed: (){
-                                            MyNavigator.goToDashBoard(context);
+                                            Navigator.push(context, MaterialPageRoute(builder: (context)=>FillPersonInfo()));
                                           },
                                         ),
                                       ),

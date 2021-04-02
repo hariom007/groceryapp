@@ -44,12 +44,17 @@ class _AllProductsState extends State<AllProducts> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            CircleAvatar(
-                              radius: 20,
-                              backgroundColor: AppColors.white_00,
-                              child: Icon(Icons.arrow_back_ios_rounded,
-                                color: AppColors.black,
-                                size: 20,
+                            InkWell(
+                              onTap: (){
+                                Navigator.pop(context);
+                              },
+                              child: CircleAvatar(
+                                radius: 20,
+                                backgroundColor: AppColors.white_00,
+                                child: Icon(Icons.arrow_back_ios_rounded,
+                                  color: AppColors.black,
+                                  size: 20,
+                                ),
                               ),
                             ),
                             CircleAvatar(
@@ -164,12 +169,12 @@ class _AllProductsState extends State<AllProducts> {
                                     child: Padding(
                                       padding: const EdgeInsets.all(10.0),
                                       child: Image.asset(
-                                        'assets/icon/fish.png',
+                                        'assets/icon/bread.png',
                                       ),
                                     ),
                                   ),
                                   SizedBox(height: 20,),
-                                  Text('Fish',style: TextStyle(
+                                  Text('Bread',style: TextStyle(
                                     fontWeight: FontWeight.bold
                                   ),),
                                   SizedBox(height: 15,),
@@ -199,12 +204,12 @@ class _AllProductsState extends State<AllProducts> {
                                     child: Padding(
                                       padding: const EdgeInsets.all(10.0),
                                       child: Image.asset(
-                                        'assets/icon/meat.png',
+                                        'assets/icon/fruit.png',
                                       ),
                                     ),
                                   ),
                                   SizedBox(height: 20,),
-                                  Text('Meats',style: TextStyle(
+                                  Text('Fruits',style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: AppColors.white_00
                                   ),),
@@ -235,12 +240,12 @@ class _AllProductsState extends State<AllProducts> {
                                     child: Padding(
                                       padding: const EdgeInsets.all(10.0),
                                       child: Image.asset(
-                                        'assets/icon/fruit.png',
+                                        'assets/icon/milk.png',
                                       ),
                                     ),
                                   ),
                                   SizedBox(height: 20,),
-                                  Text('Fruits',style: TextStyle(
+                                  Text('Milk',style: TextStyle(
                                     fontWeight: FontWeight.bold
                                   ),),
                                   SizedBox(height: 15,),
@@ -295,7 +300,7 @@ class _AllProductsState extends State<AllProducts> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Expanded(
-                              child: Text('Meats',
+                              child: Text('Fruits',
                                 style: TextStyle(
                                     fontFamily: 'Montserrat-semibold',
                                     fontSize: 18
@@ -336,13 +341,13 @@ class _AllProductsState extends State<AllProducts> {
                                    children: [
                                      ClipRRect(
                                        borderRadius: BorderRadius.circular(4.0),
-                                       child: Image.asset('assets/image/meat1.jpeg',
+                                       child: Image.asset('assets/image/straw.jpeg',
                                          width: width,
                                          height: 120,
                                          fit: BoxFit.fill,),
                                      ),
                                      SizedBox(height: 7,),
-                                     Text('Raw Chicken with spicy',
+                                     Text('StrawBerry',
                                        style: TextStyle(
                                            fontWeight: FontWeight.bold,
                                          fontSize: 12,
@@ -406,15 +411,15 @@ class _AllProductsState extends State<AllProducts> {
                                    children: [
                                      ClipRRect(
                                        borderRadius: BorderRadius.circular(4.0),
-                                       child: Image.asset('assets/image/meat2.jpeg',
+                                       child: Image.asset('assets/image/apple.jpeg',
                                          width: width,
                                          height: 120,
                                          fit: BoxFit.fill,),
                                      ),
                                      SizedBox(height: 7,),
-                                     Text('Mutton with spicy',
+                                     Text('Apple',
                                        style: TextStyle(
-                                           fontWeight: FontWeight.bold,
+                                         fontWeight: FontWeight.bold,
                                          fontSize: 12,
                                          color: AppColors.black
                                        ),),
@@ -431,7 +436,7 @@ class _AllProductsState extends State<AllProducts> {
                                                ),
                                              ),
                                              TextSpan(
-                                               text: '300',
+                                               text: '200',
                                                style: TextStyle(
                                                  fontFamily: 'montserrat-Extrabold',
                                                  fontSize: 16,
@@ -482,13 +487,13 @@ class _AllProductsState extends State<AllProducts> {
                                    children: [
                                      ClipRRect(
                                        borderRadius: BorderRadius.circular(4.0),
-                                       child: Image.asset('assets/image/meat3.jpeg',
+                                       child: Image.asset('assets/image/pineapple.jpeg',
                                          width: width,
                                          height: 120,
                                          fit: BoxFit.fill,),
                                      ),
                                      SizedBox(height: 7,),
-                                     Text('Raw Chicken with spicy',
+                                     Text('Pineapple',
                                        style: TextStyle(
                                            fontWeight: FontWeight.bold,
                                          fontSize: 12,
@@ -552,13 +557,13 @@ class _AllProductsState extends State<AllProducts> {
                                    children: [
                                      ClipRRect(
                                        borderRadius: BorderRadius.circular(4.0),
-                                       child: Image.asset('assets/image/meat4.jpeg',
+                                       child: Image.asset('assets/image/pomegranate.jpeg',
                                          width: width,
                                          height: 120,
                                          fit: BoxFit.fill,),
                                      ),
                                      SizedBox(height: 7,),
-                                     Text('Mutton with spicy',
+                                     Text('Pomegranate',
                                        style: TextStyle(
                                            fontWeight: FontWeight.bold,
                                          fontSize: 12,

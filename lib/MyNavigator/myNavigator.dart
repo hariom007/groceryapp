@@ -17,9 +17,12 @@ class MyNavigator{
     Navigator.of(context).pushNamedAndRemoveUntil('/splashscreen', (route) => false);
   }
 
-
   static void goToHomePage(BuildContext context){
     Navigator.of(context).pushNamedAndRemoveUntil('/homePage', (route) => false);
+  }
+
+  static void goToSelectLanguage(BuildContext context){
+    Navigator.of(context).pushNamedAndRemoveUntil('/selectLanguage', (route) => false);
   }
 
 }

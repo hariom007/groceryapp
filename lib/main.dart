@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:groceryapp/Authorization/IntroScreen/introScreen.dart';
 import 'package:groceryapp/Authorization/LoginPage/loginPage.dart';
+import 'package:groceryapp/Authorization/SplashScreen/splashscreen.dart';
+import 'package:groceryapp/Authorization/selectLanguage.dart';
 import 'package:groceryapp/UIDashBoard/HomePage/homePage.dart';
 import 'package:groceryapp/UIDashBoard/dashBoard.dart';
 import 'Values/AppColors.dart';
@@ -15,7 +17,7 @@ class GroceryApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: IntroScreen(),
+      home: SplashScreen(),
       title: 'Grocery App',
       theme: ThemeData(
           primaryColor: AppColors.primaryColor,
@@ -49,6 +51,7 @@ class GroceryApp extends StatelessWidget {
         '/dashBoard' : (BuildContext context) => DashBoard(),
         '/introScreen' : (BuildContext context) => IntroScreen(),
         '/homePage':  (BuildContext context) => HomePage(),
+        '/selectLanguage':  (BuildContext context) => SelectLanguage(),
       },
     );
   }
