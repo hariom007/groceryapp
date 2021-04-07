@@ -183,7 +183,6 @@ class _AllProductsState extends State<AllProducts> {
                                     fontWeight: FontWeight.bold
                                   ),),
                                   SizedBox(height: 15,),
-
                                 ],
                               ),
                             ),
