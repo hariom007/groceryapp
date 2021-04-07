@@ -57,10 +57,15 @@ class _AllProductsState extends State<AllProducts> {
                                 ),
                               ),
                             ),
-                            CircleAvatar(
-                              radius: 20,
-                              backgroundColor: AppColors.white_00,
-                              child: Icon(Icons.favorite_outline_rounded,color: AppColors.red_80,),
+                            InkWell(
+                              onTap: (){
+
+                              },
+                              child: CircleAvatar(
+                                radius: 20,
+                                backgroundColor: AppColors.white_00,
+                                child: Icon(Icons.favorite_outline_rounded,color: AppColors.red_80,),
+                              ),
                             ),
                           ],
                         ),
